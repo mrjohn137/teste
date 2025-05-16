@@ -1,10 +1,11 @@
 import React from "react";
+const api_url: string | undefined = process.env.NEXT_PUBLIC_API;
 
 export interface PostsProps {
   numero: string
 }
 async function getPosts() {
-  const res = await fetch("https://servicebus2.caixa.gov.br/portaldeloterias/api/lotofacil/");
+  const res = await fetch(api_url as string);
   return res.json();
 }
 
