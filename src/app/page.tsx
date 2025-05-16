@@ -1,12 +1,12 @@
-
-export default async function Home() {
-  const data = await fetch('https://api.vercel.app/blog')
+export default async function Page() {
+  const data = await fetch('https://api.vercel.app/blog/1')
   const posts = await data.json()
+
+  console.log(posts);
+
   return (
     <ul>
-      {posts.map((post) => (
-        <li key={post.id}>{post.title}</li>
-      ))}
+      <li key={posts.id}>{posts.title}</li>
     </ul>
   )
 }
