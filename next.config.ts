@@ -1,7 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async rewrites() {
+    return {
+      fallback: [
+        {
+          source: '/results/:path*',
+          destination: `https://servicebus2.caixa.gov.br/portaldeloterias/api/:path*`,
+        },
+      ],
+    }
+  },
 };
 
 export default nextConfig;
