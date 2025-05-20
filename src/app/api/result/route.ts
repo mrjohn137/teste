@@ -52,10 +52,10 @@ export async function GET() {
         concursoAnterior = await fetch(`https://servicebus2.caixa.gov.br/portaldeloterias/api/lotofacil/${numeroAnterior}`, options)
           .then(res => res.ok ? res.json() : null)
           .catch(() => null);
-      } catch (error: unknown) {
+      } catch (error) {
         // Silenciosamente falha se o concurso anterior não estiver disponível
+        console.error('Concurso anterior não disponível:', error);
         console.log('Concurso anterior não disponível');
-        console.log(error);
         
       }
     }
