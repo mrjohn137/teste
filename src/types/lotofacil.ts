@@ -14,5 +14,4 @@ export interface LotofacilResult {
     valorPremio: number;
     descricaoFaixa: string;
   }[];
-  [key: string]: any; // Para outros campos que possam existir
 }

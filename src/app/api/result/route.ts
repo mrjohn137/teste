@@ -73,6 +73,8 @@ export async function GET() {
       responseData = await response.text();
     } catch (error: unknown) {
       console.log('Primeira tentativa falhou, tentando com agente personalizado');
+      console.log(error);
+      
       // Tentativa 2: Usando agente HTTPS personalizado
       responseData = await fetchWithAgent(
         'https://servicebus2.caixa.gov.br/portaldeloterias/api/lotofacil/',
