@@ -108,7 +108,7 @@ export async function getLotofacilData(): Promise<Root> {
       throw new Error(`Erro ao buscar dados: ${response.status} ${response.statusText}`);
     }
     
-    return null
+    return response.json()
   } catch (error: unknown) {
     console.error('Erro ao buscar dados da Lotofacil:', error);
     throw error;
