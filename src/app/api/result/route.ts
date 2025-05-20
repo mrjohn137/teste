@@ -57,7 +57,7 @@ export async function getLotofacilData(): Promise<LotofacilResult> {
     }
 
     return response.json();
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Erro ao buscar dados da Lotofacil:', error);
     throw error;
   }
@@ -96,7 +96,7 @@ export async function GET() {
         concursoAnterior = await fetch(`https://servicebus2.caixa.gov.br/portaldeloterias/api/lotofacil/${numeroAnterior}`, options)
           .then(res => res.ok ? res.json() : null)
           .catch(() => null);
-      } catch (error) {
+      } catch (error: unknown) {
         // Silenciosamente falha se o concurso anterior não estiver disponível
         console.log(error);
         console.log(`Concurso anterior não disponível`);
@@ -108,7 +108,7 @@ export async function GET() {
       atual: concursoAtual,
       anterior: concursoAnterior
     });
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Erro ao buscar dados da Lotofacil:', error);
     return NextResponse.json(
       { error: 'Erro ao buscar dados da Lotofacil' },
