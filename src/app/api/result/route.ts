@@ -51,7 +51,11 @@ export async function GET() {
       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
       'sec-ch-ua': '"Not A(Brand";v="99", "Google Chrome";v="121", "Chromium";v="121"',
       'sec-ch-ua-mobile': '?0',
-      'sec-ch-ua-platform': '"Windows"'
+      'sec-ch-ua-platform': '"Windows"',
+      'Access-Control-Allow-Origin': 'ALLOWED_ORIGIN',
+      'Access-Control-Allow-Methods': 'GET',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      'Access-Control-Allow-Credentials': 'true',
     };
 
     let responseData: string;
@@ -99,7 +103,11 @@ export async function GET() {
         status: 200,
         headers: {
           'Content-Type': 'text/plain',
-          'Cache-Control': 'public, s-maxage=86400'
+          'Cache-Control': 'public, s-maxage=86400',
+                'Access-Control-Allow-Origin': 'ALLOWED_ORIGIN',
+      'Access-Control-Allow-Methods': 'GET',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      'Access-Control-Allow-Credentials': 'true',
         }
       });
     }

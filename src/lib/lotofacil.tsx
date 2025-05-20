@@ -15,7 +15,8 @@ export async function getLotofacilData(): Promise<LotofacilResult> {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
         'sec-ch-ua': '"Not A(Brand";v="99", "Google Chrome";v="121", "Chromium";v="121"',
         'sec-ch-ua-mobile': '?0',
-        'sec-ch-ua-platform': '"Windows"'
+        'sec-ch-ua-platform': '"Windows"',
+        'Access-Control-Allow-Origin': 'https://teste-tc49.vercel.app/',
       },
       // Usando cache com revalidação diária (86400 segundos = 24 horas)
       next: { 
