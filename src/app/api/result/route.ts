@@ -19,6 +19,57 @@ export interface LotofacilResult {
 }
 
 
+export interface ListaMunicipioUfganhadore {
+  ganhadores: number
+  municipio: string
+  nomeFatansiaUL: string
+  posicao: number
+  serie: string
+  uf: string
+}
+
+export interface ListaRateioPremio {
+  descricaoFaixa: string
+  faixa: number
+  numeroDeGanhadores: number
+  valorPremio: number
+}
+
+export interface Root {
+  acumulado: boolean
+  dataApuracao: string
+  dataProximoConcurso: string
+  dezenasSorteadasOrdemSorteio: string[]
+  exibirDetalhamentoPorCidade: boolean
+  id: string
+  indicadorConcursoEspecial: number
+  listaDezenas: string[]
+  listaDezenasSegundoSorteio: string[]
+  listaMunicipioUFGanhadores: ListaMunicipioUfganhadore[]
+  listaRateioPremio: ListaRateioPremio[]
+  listaResultadoEquipeEsportiva: string
+  localSorteio: string
+  nomeMunicipioUFSorteio: string
+  nomeTimeCoracaoMesSorte: string
+  numero: number
+  numeroConcursoAnterior: number
+  numeroConcursoFinal_0_5: number
+  numeroConcursoProximo: number
+  numeroJogo: number
+  observacao: string
+  premiacaoContingencia: string
+  tipoJogo: string
+  tipoPublicacao: number
+  ultimoConcurso: boolean
+  valorArrecadado: number
+  valorAcumuladoConcurso_0_5: number
+  valorAcumuladoConcursoEspecial: number
+  valorAcumuladoProximoConcurso: number
+  valorEstimadoProximoConcurso: number
+  valorSaldoReservaGarantidora: number
+  valorTotalPremioFaixaUm: number
+}
+
 // Interface para os dados retornados para diferentes concursos
 export interface ConcursoResponse {
   atual: LotofacilResult | null;
@@ -36,7 +87,7 @@ function isNewDrawTime(): boolean {
   return (currentHour >= 20 && (currentDay === 1 || currentDay === 3 || currentDay === 5));
 }
 
-export async function getLotofacilData(): Promise<LotofacilResult> {
+export async function getLotofacilData(): Promise<Root> {
   try {
     const response = await fetch('https://servicebus2.caixa.gov.br/portaldeloterias/api/lotofacil/', {
       headers: {
@@ -52,13 +103,12 @@ export async function getLotofacilData(): Promise<LotofacilResult> {
       },
     });
     
-
+    
     if (!response.ok) {
       throw new Error(`Erro ao buscar dados: ${response.status} ${response.statusText}`);
     }
-    const data = await response.json()
-
-    return data
+    
+    return null
   } catch (error: unknown) {
     console.error('Erro ao buscar dados da Lotofacil:', error);
     throw error;
