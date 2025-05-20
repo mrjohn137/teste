@@ -51,12 +51,14 @@ export async function getLotofacilData(): Promise<LotofacilResult> {
         tags: ['lotofacil']
       },
     });
+    
 
     if (!response.ok) {
       throw new Error(`Erro ao buscar dados: ${response.status} ${response.statusText}`);
     }
+    const data = await response.json()
 
-    return response.json();
+    return data
   } catch (error: unknown) {
     console.error('Erro ao buscar dados da Lotofacil:', error);
     throw error;
