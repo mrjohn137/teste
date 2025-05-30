@@ -38,6 +38,7 @@ export default async function Home() {
         <h1 className="text-3xl font-bold mb-6 text-center">Resultados da Lotofácil</h1>
         <div className="max-w-3xl mx-auto">
           <LotofacilResults data={lotofacilData} />
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi harum quibusdam veniam hic repudiandae exercitationem itaque ipsum et. At vel deserunt blanditiis libero modi sunt cum repudiandae aliquid nisi consequuntur?</p>
           
           {/* Aviso quando estamos usando dados mockados */}
           {lotofacilData === mockLotofacilData && (
